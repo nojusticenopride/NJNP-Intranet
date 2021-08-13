@@ -1,0 +1,217 @@
+<article id="manage_njnp" class="bp_group type-bp_group type-page status-publish hentry">
+  <div id="buddypress" class="buddypress-wrap bp-dir-hori-nav">
+      <div class="entry-content">
+    <div id="buddypress" class="buddypress-wrap bp-dir-hori-nav">
+      <div id="item-header" role="complementary" data-bp-item-id="<?php the_ID(); ?>" data-bp-item-component="groups" class="groups-header single-headers">   
+          <div id="cover-image-container">
+
+
+
+          <div id="header-cover-image" class="cover-small width-default ">
+
+
+          </div>
+
+
+          <div id="item-header-cover-image" class="item-header-wrap bb-enable-cover-img">
+            <div id="item-header-avatar">
+              <img src="https://njnpcommunity.org/wp-content/plugins/buddyboss-platform/bp-core/images/mystery-group.png" class="avatar group-22-avatar avatar-300 photo" width="300" height="300" alt="Group logo of Leadership">			</div><!-- #item-header-avatar -->
+
+
+            <div id="item-header-content">
+
+              <div class="flex align-items-center bp-group-title-wrap">
+                <h2 class="bb-bp-group-title"><?php the_title(); ?></h2>
+                <p class="bp-group-meta bp-group-type"><span class="group-type">Leadership</span><span class="type-separator">/</span> <span class="group-type">Board</span></p>
+              </div>
+
+
+
+              <div class="group-description">
+                <p><?php the_content(); ?></p>
+              </div><!-- //.group_description -->
+
+              <div id="item-actions" class="group-item-actions">
+
+
+                <h4 class="bp-title">Organizers (10)</h4>
+
+                <dl class="moderators-lists">
+                  <dt class="moderators-title">Organized by</dt>
+                  <dd class="user-list admins">		<ul id="group-admins">
+                    <li>
+                        <?php
+// Define taxonomy prefix eg. 'category'
+// Use 'term' for all taxonomies
+$taxonomy_prefix = 'teams';
+
+// Define term ID
+// Replace NULL with ID of term to be queried eg '123' 
+$term_id = 42;
+
+// Example: Get the term ID in a term archive template 
+// $term_id = get_queried_object_id();
+
+// Define prefixed term ID
+$term_id_prefixed = $taxonomy_prefix .'_'. $term_id;
+?>
+                        <?php $team_members = get_field( 'team_members', $term_id_prefixed ); ?>
+<?php if ( $team_members ) : ?>
+	<?php foreach ( $team_members as $user_id ) : ?>
+		<?php $user_data = get_userdata( $user_id ); ?>
+		<?php if ( $user_data ) : ?>
+                        
+                        
+                        <li>
+                      <a href="https://njnpcommunity.org/members/<?php echo esc_url( $user_data->display_name ); ?>/" class="bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php echo esc_html( $user_data->display_name ); ?>">
+                        <img src="<?php echo esc_url( get_avatar_url( $user_id ) ); ?>" class="avatar user-15-avatar avatar-150 photo" width="150" height="150" alt="Profile photo of <?php echo esc_html( $user_data->display_name ); ?>">					</a>
+                    </li> 
+                       
+		<?php endif; ?>
+	<?php endforeach; ?>
+<?php endif; ?>
+                           <?php
+// Define taxonomy prefix eg. 'category'
+// Use 'term' for all taxonomies
+$taxonomy_prefix = 'teams';
+
+// Define term ID
+// Replace NULL with ID of term to be queried eg '123' 
+$term_id = 68;
+
+// Example: Get the term ID in a term archive template 
+// $term_id = get_queried_object_id();
+
+// Define prefixed term ID
+$term_id_prefixed = $taxonomy_prefix .'_'. $term_id;
+?>
+                        <?php $team_members = get_field( 'team_members', $term_id_prefixed ); ?>
+<?php if ( $team_members ) : ?>
+	<?php foreach ( $team_members as $user_id ) : ?>
+		<?php $user_data = get_userdata( $user_id ); ?>
+		<?php if ( $user_data ) : ?>
+                        
+                        
+                        <li>
+                      <a href="https://njnpcommunity.org/members/<?php echo esc_url( $user_data->display_name ); ?>/" class="bp-tooltip" data-bp-tooltip-pos="up" data-bp-tooltip="<?php echo esc_html( $user_data->display_name ); ?>">
+                        <img src="<?php echo esc_url( get_avatar_url( $user_id ) ); ?>" class="avatar user-15-avatar avatar-150 photo" width="150" height="150" alt="Profile photo of <?php echo esc_html( $user_data->display_name ); ?>">					</a>
+                    </li> 
+                       
+		<?php endif; ?>
+	<?php endforeach; ?>
+<?php endif; ?>
+                        
+                 
+                    </ul>
+                  </dd>
+                </dl>
+
+
+              </div><!-- .item-actions -->
+
+              <div class="bp-generic-meta groups-meta action"><div id="groupbutton-<?php the_ID(); ?>" class="generic-button"><button class="group-button leave-group bp-toggle-action-button button" data-title="Leave group" data-title-displayed="You're an Organizer" data-bp-nonce="https://njnpcommunity.org/groups/leadership/leave-group/?_wpnonce=a386ebad69" data-bp-btn-action="leave_group">You're an Organizer</button></div></div>
+            </div><!-- #item-header-content -->
+
+
+          </div><!-- #item-header-cover-image -->
+
+        </div><!-- #cover-image-container -->
+
+      </div><!-- #item-header -->
+
+
+      <div class="bp-wrap">
+
+
+
+        <nav class="main-navs bp-navs single-screen-navs horizontal groups-nav" id="object-nav" role="navigation" aria-label="Group menu">
+
+          <ul>
+
+
+            <li id="nav-forum-groups-li" class="bp-groups-tab current selected">
+              <a href="https://njnpcommunity.org/forums/forum/njnp-inbox/" id="nav-forum" data-section="forum">
+                Main Feed / Inbox
+              </a>
+            </li>
+
+
+            <li id="expenses-groups-li" class="bp-groups-tab">
+              <a href="https://njnpcommunity.org/manage-expenses/" id="expenses" data-section="expenses">
+                Expenses
+              </a>
+            </li>
+
+
+            <li id="requests-groups-li" class="bp-groups-tab">
+              <a href="https://njnpcommunity.org/manage-requests/" id="requests" data-section="requests">
+                Requests
+              </a>
+            </li>
+
+
+            <li id="tasks-groups-li" class="bp-groups-tab">
+              <a href="" id="tasks" data-section="tasks">
+                Tasks
+              </a>
+            </li>
+
+
+            <li id="incidents-groups-li" class="bp-groups-tab">
+              <a href="" id="incidents" data-section="incidents">
+                Incident Reports
+              </a>
+            </li>
+
+
+            <li id="accounts-groups-li" class="bp-groups-tab">
+              <a href="" id="accounts" data-section="accounts">
+                Accounts
+              </a>
+            </li>
+              <li id="budget-groups-li" class="bp-groups-tab">
+              <a href="" id="budget" data-section="budget">
+                Budget
+              </a>
+            </li>
+              <li id="payroll-groups-li" class="bp-groups-tab">
+              <a href="" id="payroll" data-section="payroll">
+                Payroll
+              </a>
+            </li>
+              
+              <li id="reports-groups-li" class="bp-groups-tab">
+              <a href="" id="reports" data-section="reports">
+                Reports
+              </a>
+            </li>
+
+
+
+            <li class="hideshow menu-item-has-children1" style="display: none;"><a class="more-button" href="#"><i class="bb-icon-menu-dots-h"></i></a><ul class="sub-menu"></ul></li></ul>
+
+
+        </nav>
+
+
+        <div class="bb-profile-grid bb-grid">
+          <div id="item-body" class="item-body">
+              <?php   get_template_part( 'template-parts/manage', 'forum' ); ?>
+              
+
+          </div>
+
+
+        </div>
+
+      </div><!-- // .bp-wrap -->
+
+
+
+
+    </div><!-- #buddypress -->
+    </div>
+    </div><!-- .entry-content -->
+
+
+</article>

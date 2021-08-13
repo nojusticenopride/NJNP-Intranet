@@ -1,0 +1,40 @@
+<?php the_field( 'project_timeline' ); ?>
+<?php the_field( 'start_date' ); ?>
+<?php the_field( 'end_date' ); ?>
+<?php $team = get_field( 'team' ); ?>
+<?php if ( $team ) : ?>
+	<?php $get_terms_args = array(
+		'taxonomy' => 'teams',
+		'hide_empty' => 0,
+		'include' => $team,
+	); ?>
+	<?php $terms = get_terms( $get_terms_args ); ?>
+	<?php if ( $terms ) : ?>
+		<?php foreach ( $terms as $term ) : ?>
+			<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
+		<?php endforeach; ?>
+	<?php endif; ?>
+<?php endif; ?>
+<?php $project_type = get_field( 'project_type' ); ?>
+<?php $term = get_term_by( 'id', $project_type, 'project-type' ); ?>
+<?php if ( $term ) : ?>
+	<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
+<?php endif; ?>
+<?php the_field( 'incident_reports' ); ?>
+<?php $resident = get_field( 'resident' ); ?>
+<?php if ( $resident ) : ?>
+	<?php $user_data = get_userdata( $resident ); ?>
+	<?php if ( $user_data ) : ?>
+		<a href="<?php echo get_author_posts_url( $resident ); ?>"><?php echo esc_html( $user_data->display_name ); ?></a>
+	<?php endif; ?>
+<?php endif; ?>
+<?php the_field( 'requests_link' ); ?>
+<?php the_field( 'expenses_link' ); ?>
+<?php $tasks = get_field( 'tasks' ); ?>
+<?php if ( $tasks ) : ?>
+	<?php foreach ( $tasks as $post ) : ?>
+		<?php setup_postdata ( $post ); ?>
+		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+	<?php endforeach; ?>
+	<?php wp_reset_postdata(); ?>
+<?php endif; ?>
